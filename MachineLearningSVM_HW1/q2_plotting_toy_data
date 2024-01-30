@@ -1,0 +1,23 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.load('../data/toy-data.npz')['training_data']
+labels = np.load('../data/toy-data.npz')['training_labels']
+
+#initialize function values
+w = np.array([-0.4528, -0.5190])
+alpha = 0.1471
+plt.scatter(data[:, 0], data[:, 1], c=labels)
+
+# decision boundary
+x = np.linspace(-5, 5, 100)
+y = -(w[0]*x + alpha)/w[1]
+plt.plot(x, y, 'k')
+
+#margins
+y_margin_up = -(w[0]*x + alpha - 1)/w[1]
+y_margin_down = -(w[0]*x + alpha + 1)/w[1]
+plt.plot(x, y_margin_up, 'k--')
+plt.plot(x, y_margin_down, 'k--')
+
+plt.show()
