@@ -44,6 +44,8 @@ def a_or_an(word):
         return "an"
     return "a"
 
+#using the list of all objects seen, this code creates the *grammatical* sentence that will be spoken
+#using gTTS (aka Google's Text to Speech library)
 i = 0
 new_sentence = []
 for label in labels:
